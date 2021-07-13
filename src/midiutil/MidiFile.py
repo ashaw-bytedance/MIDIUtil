@@ -121,7 +121,7 @@ class NoteOn(GenericEvent):
         for timeByte in varTime:
             midibytes += struct.pack('>B', timeByte)
         midibytes += struct.pack('>B', code)
-        midibytes += struct.pack('>B', self.pitch)
+        midibytes += struct.pack('>B', int(self.pitch))
         midibytes += struct.pack('>B', self.volume)
         return midibytes
 
@@ -166,7 +166,7 @@ class NoteOff (GenericEvent):
         for timeByte in varTime:
             midibytes += struct.pack('>B', timeByte)
         midibytes += struct.pack('>B', code)
-        midibytes += struct.pack('>B', self.pitch)
+        midibytes += struct.pack('>B', int(self.pitch))
         midibytes += struct.pack('>B', self.volume)
         return midibytes
 
